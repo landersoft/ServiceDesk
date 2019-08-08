@@ -25,11 +25,11 @@ class Ticket(models.Model):
 
     ABIERTO = 'AB'
     CERRADO = 'CE'
-    PROCESO ='EP'
+    PENDIENTE ='PE'
     estado = [
-        (ABIERTO, 'Abierto'),
+        (ABIERTO, 'En Curso'),
         (CERRADO, 'Cerrado'),
-        (PROCESO, 'En Proceso')
+        (PENDIENTE, 'Pendiente')
     ]
 
 
@@ -185,9 +185,9 @@ class Ticket(models.Model):
     asignatario = models.CharField(max_length=100, choices=asignatario)
     estado = models.CharField(max_length=2, choices=estado, default= ABIERTO)
     grupo_resolutor = models.CharField(max_length=20, choices=grupo, default = BUPA_CL_NIVEL2)
-    fecha_derivacion = models.DateField()
+    fecha_derivacion = models.DateField(null=True, blank=True)
     solucionable_cau = models.CharField(max_length=2, choices=SOL_CAU, default = NO)
-    comentario = models.CharField(max_length=250, null=True)
+    comentario = models.CharField(max_length=250, null=True, blank=True)
 
     class Meta:
         ordering = ["asignatario"]
