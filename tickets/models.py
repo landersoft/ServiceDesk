@@ -179,7 +179,7 @@ class Ticket(models.Model):
 
 
     fecha = models.DateField()
-    ccmm = models.CharField(max_length=5,choices=centros, default = TALCA)
+    ccmm = models.ForeignKey(CCMM, on_delete=models.CASCADE)
     ticket = models.CharField(max_length=10)
     analista = models.EmailField(choices = analista)
     resumen = models.CharField(max_length=250)
@@ -197,3 +197,17 @@ class Ticket(models.Model):
 
         def __str__(self):
             return str(self.asignatario)
+
+
+
+class CCMM(models.Model):
+    sigla = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=50)
+
+    class Meta: 
+        ordering = ['sigla']
+        verbolse_name = 'CCMM'
+        verbolse_name_plural = 'CCMMS'
+
+        def __str__(self):
+            return str(self.sigla)
