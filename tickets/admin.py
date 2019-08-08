@@ -7,8 +7,8 @@ from .models import Ticket, CCMM
 
 
 class AdminTicket(admin.ModelAdmin):
-    list_display = ["fecha", "ccmm","ticket","analista","resumen","asignatario", "estado","grupo_resolutor","fecha_derivacion","solucionable_cau"]
-    list_filter = ["asignatario","ccmm"]
+    list_display = ["ticket","fecha", "ccmm","analista","resumen","asignatario", "estado","grupo_resolutor","fecha_derivacion","solucionable_cau"]
+    list_filter = ["fecha","asignatario"]
     search_fields = ["ticket"]
     autocomplete_fields = ['ccmm']
 
