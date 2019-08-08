@@ -70,6 +70,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Planilla.wsgi.application'
 
+ADMIN_SITE_HEADER = "Soporte BUPA TI N2"
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
