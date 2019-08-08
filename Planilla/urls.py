@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+
+admin.site.site_header = settings.ADMIN_SITE_HEADER
+admin.sites.AdminSite.site_title = 'Sistema Tickets Nivel 2'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', admin.site.urls),
 ]
