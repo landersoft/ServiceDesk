@@ -1,6 +1,18 @@
 from django.db import models
 
 # Create your models here.
+
+
+class CCMM(models.Model):
+    sigla = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=100, null = True)
+    def __str__(self):
+        return str(self.sigla)
+
+
+
+
 class Ticket(models.Model):
     
 
@@ -165,19 +177,6 @@ class Ticket(models.Model):
 
     ]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     fecha = models.DateField()
     ccmm = models.ForeignKey(CCMM, on_delete=models.CASCADE)
     ticket = models.CharField(max_length=10)
@@ -200,14 +199,3 @@ class Ticket(models.Model):
 
 
 
-class CCMM(models.Model):
-    sigla = models.CharField(max_length=20)
-    nombre = models.CharField(max_length=50)
-
-    class Meta: 
-        ordering = ['sigla']
-        verbolse_name = 'CCMM'
-        verbolse_name_plural = 'CCMMS'
-
-        def __str__(self):
-            return str(self.sigla)
