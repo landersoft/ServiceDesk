@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Ticket, CCMM
+from .models import Ticket, CCMM, Analista, Grupo, Asignatario
 
 
 # Register your models here.
@@ -26,3 +26,6 @@ class AdminCCMM(admin.ModelAdmin):
 
 admin.site.register(Ticket, AdminTicket)
 admin.site.register(CCMM, AdminCCMM)
+admin.site.register(Grupo)
+admin.site.register(Analista)
+admin.site.register(Asignatario)
